@@ -1,0 +1,8 @@
+#!/bin/bash
+# location: /usr/bin/start_conky_maia
+
+conky -c /usr/share/conky/conky_maia_shortcuts &&
+conky -c /usr/share/conky/conky_maia_system_stats &&
+conky -c ~/.conkyrc &&
+
+exit 0

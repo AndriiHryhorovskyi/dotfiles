@@ -1,0 +1,22 @@
+-- location: ~/.conkyrc
+
+conky.config = {
+	alignment = 'middle_middle',
+	background = false,
+	cpu_avg_samples = 2,
+	double_buffer = false,
+	default_color = 'F9FAF9',
+	draw_shades = false,
+	gap_x = 25,
+	gap_y = 45,
+	minimum_width = 200,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 3600.0,
+	use_xft = true,
+}
+conky.text = [[
+${font Bitstream Vera Sans:size=16}${execi 3600 countdown 12/20/2019}
+]]
