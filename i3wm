@@ -439,7 +439,6 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id telegram-desktop
 exec --no-startup-id skypeforlinux
-exec --no-startup-id slack
 exec --no-startup-id volumeicon
 exec --no-startup-id redshift
 exec setxkbmap -layout us -option ctrl:swapcaps
