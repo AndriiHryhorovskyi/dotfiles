@@ -8,12 +8,12 @@ set $mod Mod1
 set $win Mod4
 
 # bind keyboard layout
-# win+u => ua
-bindcode $win+30 exec setxkbmap -layout ua 
 # win+s => us
-bindcode $win+39 exec setxkbmap -layout us 
+bindcode $win+39 exec setxkbmap -layout us -option ctrl:swapcaps
+# win+u => ua
+bindcode $win+30 exec setxkbmap -layout ua -option ctrl:swapcaps
 # win+r => ru
-bindcode $win+27 exec setxkbmap -layout ru 
+bindcode $win+27 exec setxkbmap -layout ru -options ctrl:swapcaps
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -442,6 +442,7 @@ exec --no-startup-id skypeforlinux
 exec --no-startup-id slack
 exec --no-startup-id volumeicon
 exec --no-startup-id redshift
+exec setxkbmap -layout us -option ctrl:swapcaps
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
 
