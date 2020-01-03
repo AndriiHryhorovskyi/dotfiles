@@ -142,10 +142,13 @@ let mapleader = "\<Space>"
 nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
-" Copy and paste between vim processes
-vmap <leader>y :w! ~/.vim/.vbuf<CR>
-nmap <leader>y :.w! ~/.vim/.vbuf<CR>
-nmap <leader>p :r ~/.vim/.vbuf<CR>
+" Copy to clipboard
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
+nnoremap <leader>y "+y
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
 
 " Edit .vimrc
 map <leader>vl :vsp $MYVIMRC<CR>
