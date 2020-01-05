@@ -53,7 +53,7 @@ let g:AutoPairsFlyMode = 1
 let g:AutoPairsShortcutBackInsert = '<C-b>'
 
 " ale settings
-let g:ale_fixers = {'javascript':['eslint','prettier'],'markdown':["prettier"],'*':['remove_trailing_lines','trim_whitespace']}
+let g:ale_fixers = {'javascript':['eslint','prettier'],'*':['remove_trailing_lines','trim_whitespace','prettier']}
 let g:ale_linters = {'javascript':['eslint']}
 let g:ale_linters_explicit = 1
 let g:airline#extensions#ale#enabled = 1
