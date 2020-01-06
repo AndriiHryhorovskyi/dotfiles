@@ -107,8 +107,8 @@ set cmdheight=1 								" command bar height
 set splitright                  " Split vertical windows right to the current window
 set splitbelow                  " Split horizontal windows below to the current window
 
-set langmap=ёйцукенгшщзхъ\\\фывапролджэячсмитьбю.ЁЙЦУКЕHГШЩЗХЪ/ФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,;
-           \`qwertyuiop[]\\\asdfghjkl\\;'zxcvbnm\\,./~QWERTYUIOP{}\\|ASDFGHJKL:\\"ZXCVBNM<>\\?
+set langmap=!\\"№\\;%?*ёйцукенгшщзхъфывапролджэячсмитьбю.ЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,
+      \;!@#$%&*`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,./~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?
 
 set noerrorbells                " No beeps
 set novisualbell
