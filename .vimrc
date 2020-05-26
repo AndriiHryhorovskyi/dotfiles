@@ -61,6 +61,8 @@ let g:ale_fix_on_save = 0
 let g:ale_history_enabled = 0
 let g:ale_history_log_output = 0
 let g:ale_ling_on_save = 0
+let g:ale_open_list=1
+let g:ale_keep_list_window_open = 1
 nmap <silent> [e <Plug>(ale_previous_wrap)
 nmap <silent> ]e <Plug>(ale_next_wrap)
 nmap <C-\> <Plug>(ale_fix)
@@ -73,6 +75,10 @@ nmap <Space>\ <Plug>(Prettier)
 " livedown settings
 let g:livedown_browser = 'chromium'
 let g:livedown_port = 8080
+
+" Ack settings
+cnoreabbrev Ack Ack!
+nnoremap <Space>f :Ack!<Space>
 
 "==================================================
 "==                Vim settings                  ==
@@ -107,8 +113,7 @@ set cmdheight=1 								" command bar height
 set splitright                  " Split vertical windows right to the current window
 set splitbelow                  " Split horizontal windows below to the current window
 
-set langmap=!\\"№\\;%?*ёйцукенгшщзхъфывапролджэячсмитьбю.ЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,
-      \;!@#$%&*`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,./~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?
+" set langmap=!\\"№\\;%?*ёйцукенгшщзхъфывапролджэячсмитьбю.ЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,;!@#$%&*`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,./~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?
 
 set noerrorbells                " No beeps
 set novisualbell
@@ -139,6 +144,7 @@ nnoremap <C-l> <C-w>l
 
 let mapleader = "\<Space>"
 
+" resizing window
 nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
@@ -146,6 +152,7 @@ nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
 nnoremap <leader>y "+y
+
 " Paste from clipboard
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
