@@ -24,6 +24,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'shime/vim-livedown', {'for': 'markdown'} " need npm i -g livedonw
 Plug 'prettier/vim-prettier', {'do': 'npm install'}
+Plug 'mattn/emmet-vim'
 
 " Initialize plugin system
 call plug#end()
@@ -80,6 +81,8 @@ let g:livedown_port = 8080
 cnoreabbrev Ack Ack!
 nnoremap <Space>f :Ack!<Space>
 
+" emmet settings
+let g:user_emmet_leader_key='<Space>'
 "==================================================
 "==                Vim settings                  ==
 "==================================================
