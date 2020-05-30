@@ -82,7 +82,8 @@ cnoreabbrev Ack Ack!
 nnoremap <Space>f :Ack!<Space>
 
 " emmet settings
-let g:user_emmet_leader_key='<Space>'
+let g:user_emmet_leader_key=','
+
 "==================================================
 "==                Vim settings                  ==
 "==================================================
