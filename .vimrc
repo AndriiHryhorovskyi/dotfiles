@@ -24,7 +24,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'shime/vim-livedown', {'for': 'markdown'} " need npm i -g livedonw
 Plug 'prettier/vim-prettier', {'do': 'npm install'}
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': 'html'}
 
 " Initialize plugin system
 call plug#end()
