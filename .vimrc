@@ -63,7 +63,7 @@ let g:ale_history_enabled = 0
 let g:ale_history_log_output = 0
 let g:ale_ling_on_save = 0
 let g:ale_open_list=1
-let g:ale_keep_list_window_open = 1
+let g:ale_keep_list_window_open = 0
 nmap <silent> [e <Plug>(ale_previous_wrap)
 nmap <silent> ]e <Plug>(ale_next_wrap)
 nmap <C-\> <Plug>(ale_fix)
