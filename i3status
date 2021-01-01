@@ -10,6 +10,7 @@
 general {
         colors = true
         interval = 5
+        output_format = 'i3bar' #json
         color_good = "#2AA198"
         color_bad = "#586E75"
         color_degraded = "#DC322F"
@@ -17,12 +18,13 @@ general {
 
 order += "cpu_usage"
 order += "cpu_temperature 0"
+order += "memory"
 # order += "load"
 order += "disk /"
 # order += "disk /home"
-order += "wireless _first_"
+# order += "wireless _first_"
 order += "ethernet _first_"
-order += "battery all"
+# order += "battery all"
 # order += "load"
 order += "tztime local"
 # order += "ipv6"
@@ -33,12 +35,21 @@ cpu_usage {
 
 cpu_temperature 0 {
 	format = " %degrees C "
-        path = /sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input
+        path = /sys/class/hwmon/hwmon3/temp1_input
 }
 
 load {
         format = " load %1min "
         # max_threshold = 0.3
+}
+
+memory {
+    # %total, percentage_total
+    # %used, percentage_used
+    # %free, percentage_free
+    # %available, percentage_available
+    # %shared, percentage_shared
+    format = " %used"
 }
 
 disk "/" {
@@ -73,5 +84,5 @@ battery all {
 
 tztime local {
         # format = "%Y-%m-%d %H:%M:%S"
-        format = " %d.%m. %H:%M "
+        format = " %d.%m.%Y %H:%M "
 }
