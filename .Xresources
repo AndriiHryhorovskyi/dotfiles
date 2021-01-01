@@ -1,3 +1,5 @@
+!! location: ~/.Xresources
+!! load .Xresources: xrdb ~/.Xresources
 perXft.dpi:       96
 Xft.antialias: true
 Xft.hinting:   true
