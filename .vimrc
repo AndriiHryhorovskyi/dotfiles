@@ -87,6 +87,8 @@ let g:user_emmet_leader_key=','
 "==================================================
 "==                Vim settings                  ==
 "==================================================
+set list "make whitespaces to visible (trailing by default)
+set lcs+=space:· "whitespaces in a line
 set autoread
 syntax enable
 set t_Co=256
