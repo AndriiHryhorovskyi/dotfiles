@@ -168,3 +168,14 @@ map <leader>vl :vsp $MYVIMRC<CR>
 map <leader>vr :source $MYVIMRC<CR>
 
 nnoremap <Space> <NOP>
+" highlight in vimdiff mode
+hi DiffAdd ctermfg=40 ctermbg=none cterm=NONE
+hi DiffChange ctermfg=none ctermbg=none cterm=NONE
+hi DiffDelete ctermfg=red ctermbg=none cterm=NONE
+hi DiffText ctermfg=black ctermbg=179 cterm=NONE
+" alternative diff mode highlight config
+" hi DiffAdd ctermfg=black ctermbg=106 cterm=NONE
+" hi DiffChange ctermfg=black ctermbg=186 cterm=NONE
+" hi DiffDelete ctermfg=black ctermbg=red cterm=NONE
+" hi DiffText ctermfg=black ctermbg=179 cterm=NONE
+"
