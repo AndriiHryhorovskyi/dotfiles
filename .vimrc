@@ -164,8 +164,23 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 
 " Edit .vimrc
-map <leader>vl :vsp $MYVIMRC<CR>
+map <leader>vl :vsp ~/.vimrc<CR>
 map <leader>vr :source $MYVIMRC<CR>
+
+" Fugitive git bindings
+nmap <leader>gs :G status<CR>
+nmap <leader>gc :G commit<CR>
+nmap <leader>gb :G branch<CR>
+nmap <leader>gB :G blame<CR>
+nmap <leader>gC :G checkout<Space>
+nmap <leader>gl :Glog<CR>
+nmap <leader>gp :Git push<Space>
+nmap <leader>gP :Git pull<Space>
+nmap <leader>gm :Git mergetool<CR>
+nmap <leader>gd :Gvdiffsplit!<CR>
+nmap <leader>ga :G<CR>
+nmap <leader>gH :diffget //2<CR>  " get our changes
+nmap <leader>gL :diffget //3<CR>  " get their changes
 
 nnoremap <Space> <NOP>
 " highlight in vimdiff mode
