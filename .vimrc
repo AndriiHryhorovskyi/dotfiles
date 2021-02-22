@@ -175,7 +175,7 @@ nmap <leader>gb :G branch<CR>
 nmap <leader>gB :G blame<CR>
 nmap <leader>gC :G checkout<Space>
 nmap <leader>gl :Glog<CR>
-nmap <leader>gL :Glog<CR>
+nmap <leader>gFl :GV<CR>
 nmap <leader>gfl :GV!<CR>
 nmap <leader>gp :Git push<Space>
 nmap <leader>gP :Git pull<Space>
