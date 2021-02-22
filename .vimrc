@@ -22,9 +22,10 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
-Plug 'shime/vim-livedown', {'for': 'markdown'} " need npm i -g livedonw
 Plug 'prettier/vim-prettier', {'do': 'npm install'}
+Plug 'shime/vim-livedown', {'do': 'npm install', 'for': 'markdown'}
 Plug 'mattn/emmet-vim', {'for': 'html'}
+Plug 'junegunn/gv.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -174,6 +175,8 @@ nmap <leader>gb :G branch<CR>
 nmap <leader>gB :G blame<CR>
 nmap <leader>gC :G checkout<Space>
 nmap <leader>gl :Glog<CR>
+nmap <leader>gL :Glog<CR>
+nmap <leader>gfl :GV!<CR>
 nmap <leader>gp :Git push<Space>
 nmap <leader>gP :Git pull<Space>
 nmap <leader>gm :Git mergetool<CR>
