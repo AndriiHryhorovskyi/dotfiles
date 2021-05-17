@@ -439,6 +439,7 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id telegram-desktop
 exec --no-startup-id skypeforlinux
 exec --no-startup-id slack
+exec --no-startup-id discord
 exec --no-startup-id volumeicon
 exec --no-startup-id redshift
 exec --no-startup-id udiskie
@@ -466,6 +467,8 @@ bindcode $mod+71 --release exec telegram-desktop
 bindcode $mod+72 --release exec skypeforlinux
 # mod+F7
 bindcode $mod+73 --release exec slack
+# mod+F8
+bindcode $mod+74 --release exec discord
 # mod+F9
 bindcode $mod+75 --release exec pgadmin4
 # mod+F10
