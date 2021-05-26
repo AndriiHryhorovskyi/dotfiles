@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# need to enable bluetooth and pair with the device
+
+phonesim -p 12345 /usr/share/phonesim/default.xml &
+dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetProperty string:"Powered" variant:boolean:true
+dbus-send --print-reply --system --dest=org.ofono /phonesim org.ofono.Modem.SetProperty string:"Online" variant:boolean:true
+pulseaudio -k
+pulseaudio -D
+sleep 5
+pactl set-card-profile bluez_card.41_42_D6_00_4E_90 headset_head_unit
