@@ -474,9 +474,9 @@ bindcode $mod+75 --release exec pgadmin4
 # mod+F10
 bindcode $mod+76 --release exec mysql-workbench
 # mod+F11
-bindcode $mod+95 --release exec mongodb-compass
+bindcode $mod+95 --release exec robo3t
 # mod+Shift+F11
-bindcode $mod+shift+95 --release exec robo3t
+bindcode $mod+shift+95 --release exec mongodb-compass
 # mod+F12
 bindcode $mod+96 --release exec rdm
 # mod+Ctrl+m
