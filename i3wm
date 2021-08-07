@@ -441,11 +441,10 @@ exec --no-startup-id skypeforlinux
 exec --no-startup-id slack
 exec --no-startup-id discord
 exec --no-startup-id volumeicon
-exec --no-startup-id redshift
+exec --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
 exec --no-startup-id udiskie
 exec setxkbmap -layout us -option ctrl:swapcaps
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
+exec --no-startup-id pa-applet
 
 ###################################################################################
 ###				Start application				###
@@ -474,14 +473,14 @@ bindcode $mod+75 --release exec pgadmin4
 # mod+F10
 bindcode $mod+76 --release exec mysql-workbench
 # mod+F11
-bindcode $mod+95 --release exec robo3t
+bindcode $mod+95 --release exec mongodb-compass
 # mod+Shift+F11
-bindcode $mod+shift+95 --release exec mongodb-compass
+bindcode $mod+shift+95 --release exec robo3t
 # mod+F12
 bindcode $mod+96 --release exec rdm
 # mod+Ctrl+m
-bindcode $mod+control+58 exec terminal -e 'alsamixer'
-#bindsym $mod+Ctrl+m exec pavucontrol
+bindcode $mod+control+58 exec pavucontrol
+#bindcode $mod+control+58 exec terminal -e 'alsamixer'
 
 # fullscreen screenshot and copy file
 #Print
