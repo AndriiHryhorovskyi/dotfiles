@@ -453,9 +453,9 @@ exec --no-startup-id pa-applet
 # mod+Ctrl+b
 bindcode $mod+control+56 exec terminal -e 'bmenu'
 # mod+F1
-bindcode $mod+67 exec chromium
+bindcode $mod+67 exec google-chrome-stable
 # mod+F2
-bindcode $mod+68 exec code
+# bindcode $mod+68 exec code
 # mod+F3
 bindcode $mod+69 exec terminal -e 'ranger'
 # mod+Shift+f3
