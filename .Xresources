@@ -1,6 +1,7 @@
 !! location: ~/.Xresources
-!! load .Xresources: xrdb ~/.Xresources
+!! load .Xresources: xrdb --merge ~/.Xresources
 perXft.dpi:       96
+Xft.dpi:          96
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
