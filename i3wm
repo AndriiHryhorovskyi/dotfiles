@@ -426,25 +426,18 @@ mode "$mode_gaps_outer" {
 ###################################################################################
 ###			 	Autostart applications				###
 ###################################################################################
-
+# start application described in /etc/xdg/autostart/ and ~/.config/autostart/
+exec --no-startup-id dex -a
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
 exec --no-startup-id start_conky_maia
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id telegram-desktop
-exec --no-startup-id skypeforlinux
-exec --no-startup-id slack
-exec --no-startup-id discord
 exec --no-startup-id volumeicon
-exec --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
 exec --no-startup-id udiskie
-exec setxkbmap -layout us -option ctrl:swapcaps
 exec --no-startup-id pa-applet
+# swap ctrl with caps
+exec setxkbmap -layout us -option ctrl:swapcaps
 
 ###################################################################################
 ###				Start application				###
