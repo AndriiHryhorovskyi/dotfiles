@@ -18,5 +18,5 @@ conky.config = {
 	use_xft = true,
 }
 conky.text = [[
-${font Bitstream Vera Sans:size=16}${execi 3600 countdown 12/20/2019}
+${font Bitstream Vera Sans:size=16}To NY: ${exec ./countdown 01/01/date +%Y | awk '{print 1+$1}'}
 ]]
