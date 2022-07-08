@@ -88,6 +88,20 @@ let g:user_emmet_leader_key=','
 "==================================================
 "==                Vim settings                  ==
 "==================================================
+" enter the current millenium
+set nocompatible
+" for netrw
+filetype plugin on
+" search down into subfolders
+" Prowides tab-completion for all file-related tasks
+set path+=**
+" display all matching files when we tab complete
+set wildmenu
+set wildignore+=**/node_modules/**
+
+" generate tags to 'go to definition' feature
+command! MakeTags !ctags -R .
+
 set list "make whitespaces to visible (trailing by default)
 set lcs+=space:· "whitespaces in a line
 set autoread
