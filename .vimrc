@@ -1,7 +1,7 @@
 "==================================================
 "==                    Plugins                   ==
 "==================================================
-" Specify a directory for plugins
+" Plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -75,7 +75,7 @@ let g:prettier#autoformat = 0
 nmap <Space>\ <Plug>(Prettier)
 
 " livedown settings
-let g:livedown_browser = 'chromium'
+let g:livedown_browser = 'google-chrome-stable'
 let g:livedown_port = 8080
 
 " Ack settings
@@ -86,76 +86,93 @@ nnoremap <Space>f :Ack!<Space>
 let g:user_emmet_leader_key=','
 
 "==================================================
-"==                Vim settings                  ==
+"==                Nvim settings                  ==
 "==================================================
-" enter the current millenium
-set nocompatible
-" for netrw
-filetype plugin on
-" search down into subfolders
-" Prowides tab-completion for all file-related tasks
-set path+=**
-" display all matching files when we tab complete
-set wildmenu
-set wildignore+=**/node_modules/**
 
-" generate tags to 'go to definition' feature
-command! MakeTags !ctags -R .
-
-set list "make whitespaces to visible (trailing by default)
-set lcs+=space:· "whitespaces in a line
-set autoread
-syntax enable
-set t_Co=256
+" Common
 set fileformat=unix
-set encoding=UTF-8
+set lazyredraw                  " Don't redraw while executing macros (good performance config)
+set splitright                  " Split vertical windows right to the current window
+set splitbelow                  " Split horizontal windows below to the current window
+set noerrorbells                " No beeps
+set novisualbell
+set nobackup                    " Turn backup off, since most stuff is in SVN, git etc anyway...
+set writebackup
+set noswapfile
+set autoread
+set autowrite                   " Automatically :write before running commands
+" set langmap=!\\"№\\;%?*ёйцукенгшщзхъфывапролджэячсмитьбю.ЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,;!@#$%&*`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,./~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?
 
+" Colors
+set t_Co=256
+filetype plugin on " for netrw
+syntax enable
+" set termguicolors
+colorscheme ron
+" highlight for vimdiff mode
+hi DiffAdd ctermfg=40 ctermbg=none cterm=NONE
+hi DiffChange ctermfg=none ctermbg=none cterm=NONE
+hi DiffDelete ctermfg=red ctermbg=none cterm=NONE
+hi DiffText ctermfg=black ctermbg=179 cterm=NONE
+
+" alternative diff mode highlight config
+" hi DiffAdd ctermfg=black ctermbg=106 cterm=NONE
+" hi DiffChange ctermfg=black ctermbg=186 cterm=NONE
+" hi DiffDelete ctermfg=black ctermbg=red cterm=NONE
+" hi DiffText ctermfg=black ctermbg=179 cterm=NONE
+
+" Tabs and spaces
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smarttab
 set expandtab
-set autoindent
+
+" Flie find
+set path+=**                    " search down into subfolders. Prowides tab-completion for all file-related tasks
+set wildmenu                    " enhanced command line completion
+set wildignore+=**/node_modules/**
+set hidden                      " current buffer can be put into background
+
+" UI
+let mapleader = "\<Space>"
 set number
 set relativenumber
+set modelines=1
+set cursorline
+set culopt=number,screenline
 set wrap
 set linebreak
-
-set nocursorline
 set nocursorcolumn
-set lazyredraw                  " Don't redraw while executing macros (good performance config)
-set ttyfast
-set nocompatible 								" not compatible with vi
-set autowrite                   " Automatically :write before running commands
-
-set wildmenu 										" enhanced command line completion
-set hidden 											" current buffer can be put into background
 set showcmd                     " display incomplete commands
-set cmdheight=1 								" command bar height
+set cmdheight=1                 " command bar height
+set showmatch                   " show matching braces
+set list                        " Make whitespaces to visible (trailing by default)
+set lcs+=space:·                " Whitespaces in a line
+set autoindent
 
-set splitright                  " Split vertical windows right to the current window
-set splitbelow                  " Split horizontal windows below to the current window
+" Searching
+set ignorecase                  " case insensitive searching
+set smartcase                   " case-sensitive if expresson contains a capital letter
+set hlsearch                    " highlight searching results
+set incsearch                   " set incremental search
 
-" set langmap=!\\"№\\;%?*ёйцукенгшщзхъфывапролджэячсмитьбю.ЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,;!@#$%&*`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,./~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?
+" Folding
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=syntax
 
-set noerrorbells                " No beeps
-set novisualbell
-set nobackup                    " Turn backup off, since most stuff is in SVN, git etc anyway...
-set nowritebackup
-set nowb
-set noswapfile
+" Commands
+command! MakeTags !ctags -R .   " generate tags to 'go to definition' feature
+augroup AutoSaveFolds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent loadview
+augroup END
 
-" searching
-set ignorecase									" case insensitive searching
-set smartcase 									" case-sensitive if expresson contains a capital letter
-set hls													" highlight searching results
-set is													" set incremental search
-set showmatch 									" show matching braces
-
-
-" nvim setup
-" workaround for https://github.com/neovim/neovim/issues/2048
-if has('nvim')
+" Remaps
+if has('nvim') " workaround for https://github.com/neovim/neovim/issues/2048
   nmap <BS> <C-W>h
 endif
 
@@ -164,8 +181,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-let mapleader = "\<Space>"
 
 " resizing window
 nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -182,7 +197,7 @@ nnoremap <leader>P "+P
 
 " Edit .vimrc
 map <leader>vl :vsp ~/.vimrc<CR>
-map <leader>vr :source $MYVIMRC<CR>
+map <leader>vr :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 
 " Fugitive git bindings
 nmap <leader>gs :G status<CR>
@@ -202,14 +217,5 @@ nmap <leader>gH :diffget //2<CR>  " get our changes
 nmap <leader>gL :diffget //3<CR>  " get their changes
 
 nnoremap <Space> <NOP>
-" highlight in vimdiff mode
-hi DiffAdd ctermfg=40 ctermbg=none cterm=NONE
-hi DiffChange ctermfg=none ctermbg=none cterm=NONE
-hi DiffDelete ctermfg=red ctermbg=none cterm=NONE
-hi DiffText ctermfg=black ctermbg=179 cterm=NONE
-" alternative diff mode highlight config
-" hi DiffAdd ctermfg=black ctermbg=106 cterm=NONE
-" hi DiffChange ctermfg=black ctermbg=186 cterm=NONE
-" hi DiffDelete ctermfg=black ctermbg=red cterm=NONE
-" hi DiffText ctermfg=black ctermbg=179 cterm=NONE
-"
+
+" vim:foldmethod=marker:foldlevel=0
