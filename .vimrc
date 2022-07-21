@@ -107,19 +107,18 @@ set autowrite                   " Automatically :write before running commands
 set t_Co=256
 filetype plugin on " for netrw
 syntax enable
-" set termguicolors
 colorscheme ron
 " highlight for vimdiff mode
 hi DiffAdd ctermfg=40 ctermbg=none cterm=NONE
 hi DiffChange ctermfg=none ctermbg=none cterm=NONE
 hi DiffDelete ctermfg=red ctermbg=none cterm=NONE
 hi DiffText ctermfg=black ctermbg=179 cterm=NONE
-
 " alternative diff mode highlight config
 " hi DiffAdd ctermfg=black ctermbg=106 cterm=NONE
 " hi DiffChange ctermfg=black ctermbg=186 cterm=NONE
 " hi DiffDelete ctermfg=black ctermbg=red cterm=NONE
 " hi DiffText ctermfg=black ctermbg=179 cterm=NONE
+"
 
 " Tabs and spaces
 set tabstop=2
@@ -144,12 +143,15 @@ set culopt=number,screenline
 set wrap
 set linebreak
 set nocursorcolumn
+set colorcolumn=80
+set signcolumn=auto
 set showcmd                     " display incomplete commands
 set cmdheight=1                 " command bar height
 set showmatch                   " show matching braces
 set list                        " Make whitespaces to visible (trailing by default)
 set lcs+=space:·                " Whitespaces in a line
 set autoindent
+highlight Normal guibg=none
 
 " Searching
 set ignorecase                  " case insensitive searching
@@ -168,7 +170,7 @@ command! MakeTags !ctags -R .   " generate tags to 'go to definition' feature
 augroup AutoSaveFolds
   autocmd!
   autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent loadview
+  autocmd BufWinEnter * silent! loadview
 augroup END
 
 " Remaps
