@@ -90,23 +90,25 @@ let g:user_emmet_leader_key=','
 "==================================================
 
 " Common
+syntax enable
+filetype on
+filetype plugin on
+filetype plugin indent on
+
+set nostartofline
 set fileformat=unix
-set lazyredraw                  " Don't redraw while executing macros (good performance config)
 set splitright                  " Split vertical windows right to the current window
 set splitbelow                  " Split horizontal windows below to the current window
 set noerrorbells                " No beeps
 set novisualbell
-set nobackup                    " Turn backup off, since most stuff is in SVN, git etc anyway...
+set nobackup
 set writebackup
 set noswapfile
 set autoread
 set autowrite                   " Automatically :write before running commands
-" set langmap=!\\"№\\;%?*ёйцукенгшщзхъфывапролджэячсмитьбю.ЁЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ\\,;!@#$%&*`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,./~QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>?
 
 " Colors
 set t_Co=256
-filetype plugin on " for netrw
-syntax enable
 colorscheme ron
 " highlight for vimdiff mode
 hi DiffAdd ctermfg=40 ctermbg=none cterm=NONE
