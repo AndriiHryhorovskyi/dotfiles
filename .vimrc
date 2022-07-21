@@ -136,7 +136,6 @@ set wildignore+=**/node_modules/**
 set hidden                      " current buffer can be put into background
 
 " UI
-let mapleader = "\<Space>"
 set number
 set relativenumber
 set modelines=1
@@ -176,6 +175,7 @@ augroup AutoSaveFolds
 augroup END
 
 " Remaps
+let mapleader = "\<Space>"
 if has('nvim') " workaround for https://github.com/neovim/neovim/issues/2048
   nmap <BS> <C-W>h
 endif
