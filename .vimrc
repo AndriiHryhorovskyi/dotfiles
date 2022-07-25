@@ -94,6 +94,7 @@ syntax enable
 filetype on
 filetype plugin on
 filetype plugin indent on
+set spelllang=uk,en_us,ru
 
 set nostartofline
 set fileformat=unix
