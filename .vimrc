@@ -107,6 +107,7 @@ set writebackup
 set noswapfile
 set autoread
 set autowrite                   " Automatically :write before running commands
+set clipboard+=unnamedplus
 
 " Colors
 set t_Co=256
@@ -190,15 +191,6 @@ nnoremap <C-l> <C-w>l
 " resizing window
 nnoremap <silent> <leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-
-" Copy to clipboard
-vnoremap <leader>y "+y
-nnoremap <leader>Y "+Y
-nnoremap <leader>y "+y
-
-" Paste from clipboard
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
 
 " Edit .vimrc
 map <leader>vl :vsp ~/.vimrc<CR>
