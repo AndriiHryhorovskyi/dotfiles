@@ -6,6 +6,7 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 set $win Mod4
+set $terminal kitty
 
 # Change keyboard layout. Switch language
 # win+l
@@ -51,7 +52,7 @@ floating_modifier $mod
 
 # start a terminal
 # mod+Return (Enter)
-bindcode $mod+36 exec terminal 
+bindcode $mod+36 exec $terminal
 
 # kill focused window 
 # mod+Shift+q
@@ -455,13 +456,13 @@ exec setxkbmap -layout us -option keypad:pointerkeys
 ###################################################################################
 
 # mod+Ctrl+b
-bindcode $mod+control+56 exec terminal -e 'bmenu'
+bindcode $mod+control+56 exec $terminal -e 'bmenu'
 # mod+F1
 bindcode $mod+67 exec google-chrome-stable
 # mod+F2
 # bindcode $mod+68 exec code
 # mod+F3
-bindcode $mod+69 exec terminal -e 'ranger'
+bindcode $mod+69 exec $terminal -e 'ranger'
 # mod+Shift+f3
 bindcode $mod+shift+69 exec pcmanfm
 # mod+F5
@@ -484,7 +485,7 @@ bindcode $mod+shift+95 --release exec robo3t
 bindcode $mod+96 --release exec rdm
 # mod+Ctrl+m
 bindcode $mod+control+58 exec pavucontrol
-#bindcode $mod+control+58 exec terminal -e 'alsamixer'
+#bindcode $mod+control+58 exec $terminal -e 'alsamixer'
 
 # fullscreen screenshot and copy file
 #Print
