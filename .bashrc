@@ -141,5 +141,6 @@ export NVS_HOME="$HOME/.nvs"
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export TERMINAL=/usr/bin/kitty
+set -o vi
 eval "$(zoxide init bash)"
 eval "$(fzf --bash)"
