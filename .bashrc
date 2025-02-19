@@ -143,4 +143,10 @@ export VISUAL=/usr/bin/nvim
 export TERMINAL=/usr/bin/kitty
 set -o vi
 eval "$(zoxide init bash)"
+export FZF_CTRL_T_OPTS="
+  --walker-skip .git,node_modules,target
+  "
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  "
 eval "$(fzf --bash)"
