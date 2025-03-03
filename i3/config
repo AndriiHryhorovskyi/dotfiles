@@ -455,8 +455,6 @@ exec setxkbmap -layout us -option keypad:pointerkeys
 ###				Start application				###
 ###################################################################################
 
-# mod+Ctrl+b
-bindcode $mod+control+56 exec $terminal -e 'bmenu'
 # mod+F1
 bindcode $mod+67 exec google-chrome-stable
 # mod+F2
@@ -466,23 +464,27 @@ bindcode $mod+69 exec $terminal -e 'ranger'
 # mod+Shift+f3
 bindcode $mod+shift+69 exec pcmanfm
 # mod+F5
-bindcode $mod+71 --release exec telegram-desktop
+# bindcode $mod+71 --release exec telegram-desktop
 # mod+F6
-bindcode $mod+72 --release exec skypeforlinux
+bindcode $mod+72 --release exec telegram-desktop
 # mod+F7
-bindcode $mod+73 --release exec slack
+bindcode $mod+73 --release exec discord --start-minimized
 # mod+F8
-bindcode $mod+74 --release exec discord --start-minimized
+bindcode $mod+74 --release exec slack
 # mod+F9
-bindcode $mod+75 --release exec pgadmin4
+bindcode $mod+75 --release exec mattermost-desctop
 # mod+F10
-bindcode $mod+76 --release exec mysql-workbench
+# bindcode $mod+76 --release exec 
 # mod+F11
-bindcode $mod+95 --release exec mongodb-compass
+# bindcode $mod+95 --release exec mongodb-compass
 # mod+Shift+F11
-bindcode $mod+shift+95 --release exec robo3t
+# bindcode $mod+shift+95 --release exec robo3t
 # mod+F12
-bindcode $mod+96 --release exec rdm
+# bindcode $mod+96 --release exec rdm
+
+# mod+Ctrl+b
+bindcode $mod+control+56 exec $terminal -e 'bmenu'
+
 # mod+Ctrl+m
 bindcode $mod+control+58 exec pavucontrol
 #bindcode $mod+control+58 exec $terminal -e 'alsamixer'
