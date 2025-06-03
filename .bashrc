@@ -150,3 +150,8 @@ export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   "
 eval "$(fzf --bash)"
+export OPENROUTER_API_KEY=""
+export GROQ_API_KEY=""
+export GOOGLE_API_API_KEY=""
+export SONARQUBE_HOST=""
+export SONARAQUBE_KEY=""
