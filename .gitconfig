@@ -1,4 +1,5 @@
 [core]
 	editor = nvim
+	excludesFile = ~/.gitignore_global
 [merge]
 	ff = false
