@@ -1,5 +1,12 @@
+[user]
+	email = some@email.com
+	name = someName
+[init]
+	defaultBranch = main
 [core]
 	editor = nvim
 	excludesFile = ~/.gitignore_global
 [merge]
 	ff = false
+[includeif "gitdir:~/Projects/Work/subcontract/**/*"]
+	path = ~/Projects/Work/subcontract/.gitconfig-subcontract
