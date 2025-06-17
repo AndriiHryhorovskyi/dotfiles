@@ -154,3 +154,5 @@ export GROQ_API_KEY=""
 export GOOGLE_API_API_KEY=""
 export SONAR_HOST_URL=""
 export SONAR_TOKEN=""
+export TAVILY_API_KEY=""
+
