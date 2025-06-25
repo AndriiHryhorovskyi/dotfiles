@@ -464,9 +464,9 @@ bindcode $mod+69 exec $terminal -e 'ranger'
 # mod+Shift+f3
 bindcode $mod+shift+69 exec pcmanfm
 # mod+F5
-# bindcode $mod+71 --release exec telegram-desktop
+# bindcode $mod+71 --release exec Telegram
 # mod+F6
-bindcode $mod+72 --release exec telegram-desktop
+bindcode $mod+72 --release exec Telegram
 # mod+F7
 bindcode $mod+73 --release exec discord --start-minimized
 # mod+F8
