@@ -472,7 +472,7 @@ bindcode $mod+73 --release exec discord --start-minimized
 # mod+F8
 bindcode $mod+74 --release exec slack
 # mod+F9
-bindcode $mod+75 --release exec mattermost-desctop
+bindcode $mod+75 --release exec mattermost-desktop
 # mod+F10
 # bindcode $mod+76 --release exec 
 # mod+F11
