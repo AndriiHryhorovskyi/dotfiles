@@ -55,8 +55,8 @@ model: gemini/gemini-2.5-pro
 ## Set an API key for a provider (eg: --api-key provider=<key> sets PROVIDER_API_KEY=<key>)
 #api-key: xxx
 ## Specify multiple values like this:
-api-key:
- - gemini=API_KEY
+# api-key:
+#  - gemini=API_KEY
 #  - yyy
 #  - zzz
 
