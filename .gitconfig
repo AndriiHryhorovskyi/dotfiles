@@ -8,5 +8,7 @@
 	excludesFile = ~/.gitignore_global
 [merge]
 	ff = false
+[pull]
+	ff = only
 [includeif "gitdir:~/Projects/Work/subcontract/**/*"]
 	path = ~/Projects/Work/subcontract/.gitconfig-subcontract
