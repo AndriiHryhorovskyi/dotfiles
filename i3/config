@@ -439,7 +439,7 @@ mode "$mode_gaps_outer" {
 # start application described in /etc/xdg/autostart/ and ~/.config/autostart/
 exec --no-startup-id dex -a
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id start_conky_maia
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
