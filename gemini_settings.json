@@ -1,0 +1,57 @@
+{
+  "general": {
+    "preferredEditor": "nvim",
+    "vimMode": true,
+    "checkpointing": {
+      "enabled": false
+    },
+    "enablePromptCompletion": false
+  },
+  "ui": {
+    "theme": "Default",
+    "hideTips": false,
+    "hideBanner": true,
+    "hideFooter": false,
+    "showLineNumbers": true,
+    "useFullWidth": true
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "context": {
+    "fileName": [
+      "AGENTS.md"
+    ],
+    "includeDirectories": []
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    }
+  },
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "allowed": true
+    }
+  },
+  "useWriteTodos": {
+    "useWriteTodos": true
+  },
+  "security": {
+    "disableYoloMode": true,
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "telemetry": {
+    "enabled": false,
+    "target": "local",
+    "otlpEndpoint": "http://localhost:4317",
+    "logPrompts": false
+  }
+}
