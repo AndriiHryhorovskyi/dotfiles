@@ -1,0 +1,8 @@
+# location: /etc/environment
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+VDPAU_DRIVER=va_gl
+LIBVA_DRIVER_NAME=iHD
