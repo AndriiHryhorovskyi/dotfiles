@@ -1,0 +1,16 @@
+# location: ~/.xprofile
+
+# Load vars from .profile, if exists
+
+if [ -f "$HOME/.profile" ]; then
+    . "$HOME/.profile"
+fi
+
+# Other commands
+# Ex: xrandr --output HDMI-1 --auto --right-of eDP-1
+
+
+# import variables from systemd (from ~/.config/environment.d/envvars.conf)
+# if command -v systemctl >/dev/null; then
+#     eval $(systemctl --user show-environment | grep -v '^PATH=')
+# fi
