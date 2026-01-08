@@ -3,7 +3,7 @@
   "model": "google/gemini-2.5-pro",
   "small_model": "google/gemini-2.5-flash",
   "disabled_providers": ["google-vertex", "google-vertex-anthropic"],
-  "plugin": ["opencode-gemini-auth", "@tarquinen/opencode-dcp@latest"],
+  "plugin": ["opencode-gemini-auth@latest", "@tarquinen/opencode-dcp@latest"],
   "tui": {
     "scroll_speed": 2
   },
