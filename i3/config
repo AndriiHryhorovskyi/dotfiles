@@ -37,11 +37,9 @@ hide_edge_borders none
 
 # change borders
 # mod+u
-bindcode $mod+30 border none
-# mod+s
-bindcode $mod+29 border pixel 1
-# mod+n
-bindcode $mod+57 border normal
+bindcode $mod+30 border pixel 1
+# mod+U
+bindcode $mod+shift+30 border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
