@@ -1,4 +1,3 @@
-# location ~/.config/dunst/dunstrc
 [global]
     frame_width = 1
     frame_color = "#788388"
@@ -100,7 +99,7 @@
     # 
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = keyboard
+    follow = mouse
     
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
@@ -135,7 +134,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = #263238
+    separator_color = "#263238"
     
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -146,18 +145,16 @@
     dmenu = /usr/bin/dmenu -p dunst:
     
     # Browser for opening urls in context menu.
-    browser = chromium
+    browser = palemoon
 
     # Align icons left/right/off
     icon_position = left
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/16x16/legacy/
 
     # Limit icons size.
     max_icon_size=128
-
-[shortcuts]
 
     # Shortcuts are specified as [modifier+][modifier+]...key
     # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
