@@ -66,16 +66,34 @@ bindcode $mod+52 exec --no-startup-id morc_menu
 
 # --- Volume Control (Pipewire/PulseAudio) ---
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send -h string:x-dunst-stack-tag:volume -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1) 'Volume' '' -t 1500"
+
 bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send -h string:x-dunst-stack-tag:volume -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1) 'Volume' '' -t 1500"
+
 bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle; if pactl get-sink-mute @DEFAULT_SINK@ | grep -q 'yes'; then notify-send -i audio-volume-muted -h string:x-dunst-stack-tag:volume 'Audio' 'Muted' -t 1500; else notify-send -i audio-volume-high -h string:x-dunst-stack-tag:volume 'Audio' 'Active' -t 1500; fi"
+
 bindsym XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle; if pactl get-source-mute @DEFAULT_SOURCE@ | grep -q 'yes'; then notify-send -i microphone-sensitivity-muted -h string:x-dunst-stack-tag:mic 'Microphone' 'Muted' -t 1500; else notify-send -i microphone-sensitivity-high -h string:x-dunst-stack-tag:mic 'Microphone' 'Active' -t 1500; fi"
 
 # --- Brightness Control (Intel Backlight) ---
 bindsym XF86MonBrightnessUp   exec --no-startup-id "brightnessctl set +10% && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' '' -t 1500"
+
 bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 10%- && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' '' -t 1500"
 
-# mod+shift+d
-bindcode $mod+shift+40 --release exec "killall dunst; exec notify-send 'restart dunst'"
+# --- Dunst Management via dunstctl ---
+# win+n
+set $notification_control Notification: [𝐥]ast  [𝐡]istory  [𝐜]ontext  [𝐪]uit-all
+bindcode $win+57 mode "$notification_control"
+mode "$notification_control" {
+  # Redisplay last 5 notifications from history
+  bindcode 43 exec --no-startup-id "dunstctl history-pop && dunstctl history-pop && dunstctl history-pop && dunstctl history-pop && dunstctl history-pop", mode "default"
+  # Redisplay the last notification from history
+  bindcode 46 exec --no-startup-id dunstctl history-pop, mode "default"
+  # Open the context menu for the notification
+  bindcode 54 exec --no-startup-id dunstctl context, mode "default"
+  # Close all visible notifications
+  bindcode 24 exec --no-startup-id dunstctl close-all, mode "default"
+  # 9 == esc
+  bindcode 9 mode "default"
+}
 
 # mod+control+x
 bindcode $mod+control+53 --release exec --no-startup-id xkill
