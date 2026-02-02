@@ -67,14 +67,14 @@ bindcode $mod+40 exec --no-startup-id dmenu_recency
 bindcode $mod+52 exec --no-startup-id morc_menu
 
 # --- Volume Control (Pipewire/PulseAudio) ---
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send -h string:x-dunst-stack-tag:volume -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1) 'Volume' 'Increased' -t 1500"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send -h string:x-dunst-stack-tag:volume -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1) 'Volume' 'Decreased' -t 1500"
-bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle; if pactl get-sink-mute @DEFAULT_SINK@ | grep -q 'yes'; then notify-send -h string:x-dunst-stack-tag:volume 'Audio' 'Muted' -t 1500; else notify-send -h string:x-dunst-stack-tag:volume 'Audio' 'Active' -t 1500; fi"
-bindsym XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle; if pactl get-source-mute @DEFAULT_SOURCE@ | grep -q 'yes'; then notify-send -h string:x-dunst-stack-tag:mic 'Microphone' 'Muted' -t 1500; else notify-send -h string:x-dunst-stack-tag:mic 'Microphone' 'Active' -t 1500; fi"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send -h string:x-dunst-stack-tag:volume -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1) 'Volume' '' -t 1500"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send -h string:x-dunst-stack-tag:volume -h int:value:$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '[0-9]+(?=%)' | head -1) 'Volume' '' -t 1500"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ toggle; if pactl get-sink-mute @DEFAULT_SINK@ | grep -q 'yes'; then notify-send -i audio-volume-muted -h string:x-dunst-stack-tag:volume 'Audio' 'Muted' -t 1500; else notify-send -i audio-volume-high -h string:x-dunst-stack-tag:volume 'Audio' 'Active' -t 1500; fi"
+bindsym XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle; if pactl get-source-mute @DEFAULT_SOURCE@ | grep -q 'yes'; then notify-send -i microphone-sensitivity-muted -h string:x-dunst-stack-tag:mic 'Microphone' 'Muted' -t 1500; else notify-send -i microphone-sensitivity-high -h string:x-dunst-stack-tag:mic 'Microphone' 'Active' -t 1500; fi"
 
 # --- Brightness Control (Intel Backlight) ---
-bindsym XF86MonBrightnessUp   exec --no-startup-id "brightnessctl set +10% && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' 'Increased' -t 1500"
-bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 10%- && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' 'Decreased' -t 1500"
+bindsym XF86MonBrightnessUp   exec --no-startup-id "brightnessctl set +10% && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' '' -t 1500"
+bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 10%- && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' '' -t 1500"
 
 # mod+shift+d
 bindcode $mod+shift+40 --release exec "killall dunst; exec notify-send 'restart dunst'"
