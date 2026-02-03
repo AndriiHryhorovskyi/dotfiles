@@ -1,7 +1,7 @@
 !! location: ~/.Xresources
-!! load .Xresources: xrdb -merge ~/.Xresources
-perXft.dpi:       96
-Xft.dpi:          96
+!! load .Xresources: xrdb --merge ~/.Xresources
+!! Xft.dpi:          96
+Xft.dpi:          108
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
@@ -60,11 +60,11 @@ XTerm*selectToClipboard: true
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     24
 
-URxvt.font:                       xft:RobotoMonoNerdFont:pixelsize=14,xft:TerminessTTFNerdFontMono:pixelsize=18
+URxvt.font:                       xft:TerminessNerdFontMono:pixelsize=18,xft:RobotoMonoNerdFont:pixelsize=12,xft:TerminessTTFNerdFontMono:pixelsize=16
 
 ! alternative font settings with 'terminus':
-! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
-! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
+ !URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
+ !URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 !! terminus names see end of file!
 
 URxvt.depth:                      32

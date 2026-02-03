@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# 1. Оновлюємо базу ресурсів X (DPI, кольори терміналу)
+xrdb -merge ~/.Xresources
+
+# 2. Відновлюємо шпалери
+nitrogen --restore &
+
+# 3. Перезапускаємо Picom для адаптації до нової сітки моніторів
+killall picom
+picom -b --config ~/.config/picom/picom.conf
+
+# 4. Перезапускаємо Conky
+killall -SIGUSR1 conky || start_conky_maia &
+
+# 5. Повідомлення (опціонально, для дебагу)
+notify-send -i display "Display Profile" "Applied: $AUTORANDR_CURRENT_PROFILE"

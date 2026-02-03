@@ -74,9 +74,12 @@ bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute @DEFAULT_SINK@ t
 bindsym XF86AudioMicMute exec --no-startup-id "pactl set-source-mute @DEFAULT_SOURCE@ toggle; if pactl get-source-mute @DEFAULT_SOURCE@ | grep -q 'yes'; then notify-send -i microphone-sensitivity-muted -h string:x-dunst-stack-tag:mic 'Microphone' 'Muted' -t 1500; else notify-send -i microphone-sensitivity-high -h string:x-dunst-stack-tag:mic 'Microphone' 'Active' -t 1500; fi"
 
 # --- Brightness Control (Intel Backlight) ---
-bindsym XF86MonBrightnessUp   exec --no-startup-id "brightnessctl set +10% && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' '' -t 1500"
+bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl set +10% && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' '' -t 1500"
 
 bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 10%- && notify-send -h string:x-dunst-stack-tag:brightness -h int:value:$(brightnessctl -m | cut -d, -f4 | tr -d '%') 'Brightness' '' -t 1500"
+
+# --- Display setup control ---
+bindsym XF86Display --release exec --no-startup-id "autorandr --cycle"
 
 # --- Dunst Management via dunstctl ---
 # win+n
@@ -453,11 +456,10 @@ mode "$mode_gaps_outer" {
 ###################################################################################
 ###			 	Autostart applications				###
 ###################################################################################
+exec_always --no-startup-id autorandr --change --force
 # start application described in /etc/xdg/autostart/ and ~/.config/autostart/
 exec --no-startup-id dex -a
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id start_conky_maia
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id udiskie
