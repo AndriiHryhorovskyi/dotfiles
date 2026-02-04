@@ -20,8 +20,8 @@
     },
     "bash": {
       "*": "ask",
-      "npm run lint": "allow",
-      "npm run typecheck": "allow",
+      "npm run lint*": "allow",
+      "npm run typecheck*": "allow",
       "npm run test*": "allow",
       "npm run *?test*": "allow",
       "npm test": "allow",
