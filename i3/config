@@ -464,9 +464,13 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id udiskie
 # exec --no-startup-id redshift
-# swap ctrl with caps
-# exec setxkbmap -layout us -option ctrl:swapcaps
-exec setxkbmap -layout us -option keypad:pointerkeys
+exec_always --no-startup-id setxkbmap -layout us -option keypad:pointerkeys
+# enable mouse keys
+exec_always --no-startup-id xkbset m
+# prevent auto turn off mouse keys
+exec_always --no-startup-id xkbset exp =m
+# xkbset ma [delay] [interval] [time_to_max] [max_speed] [curve]
+exec_always --no-startup-id xkbset ma 10 10 20 20 20
 exec --no-startup-id clipit
 
 ###################################################################################
