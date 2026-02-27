@@ -3,11 +3,9 @@
   "model": "zai-coding-plan/glm-4.7",
   "small_model": "opencode/big-pickle",
   "disabled_providers": ["google-vertex", "google-vertex-anthropic"],
-  "plugin": ["opencode-gemini-auth@latest"],
-  "tui": {
-    "scroll_speed": 2
-  },
-  "theme": "tokyonight",
+  "plugin": [
+    "opencode-gemini-auth@latest"
+  ],
   "autoupdate": "notify",
   "share": "manual",
   "permission": {
@@ -31,47 +29,47 @@
   },
   "mcp": {
     "context7": {
+      "enabled": false,
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
-      "enabled": false
+      "command": ["npx", "-y", "@upstash/context7-mcp@latest"]
     },
     "gh_grep": {
       "type": "remote",
       "url": "https://mcp.grep.app",
       "enabled": false
+    },
+    "zai-web-search": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
+      "headers": {
+        "Authorization": "{env:ZAI_API_KEY}"
+      }
+    },
+    "zread": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/zread/mcp",
+      "headers": {
+        "Authorization": "{env:ZAI_API_KEY}"
+      }
+    },
+    "zai-web-reader": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/web_reader/mcp",
+      "headers": {
+        "Authorization": "{env:ZAI_API_KEY}"
+      }
+    },
+    "zai-vision": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "@z_ai/mcp-server"],
+      "environment": {
+        "Z_AI_API_KEY": "{env:ZAI_API_KEY}",
+        "Z_AI_MODE": "ZAI"
+      }
     }
-  },
-  "keybinds": {
-    "leader": "ctrl+x",
-    "app_exit": "<leader>q",
-    "model_list": "<leader>m",
-    "command_list": "<leader>c",
-    "editor_open": "<leader>e",
-    "messages_copy": "<leader>y",
-    "messages_undo": "<leader>u",
-    "messages_redo": "<leader>r",
-    "agent_list": "<leader>a",
-    "input_clear": "ctrl+c",
-    "input_paste": "ctrl+v",
-    "input_move_left": "left",
-    "input_move_right": "right",
-    "input_word_forward": "ctrl+right",
-    "input_word_backward": "ctrl+left",
-    "input_delete_word_forward": "ctrl+delete",
-    "input_delete_word_backward": "ctrl+w,ctrl+backspace",
-    "sidebar_toggle": "<leader>b",
-    "status_view": "<leader>s",
-    "session_timeline": "<leader>g",
-    "session_compact": "none",
-    "messages_page_up": "pageup,ctrl+b",
-    "messages_page_down": "pagedown,ctrl+f",
-    "messages_line_up": "ctrl+alt+y",
-    "messages_line_down": "ctrl+alt+e",
-    "messages_half_page_up": "ctrl+u",
-    "messages_half_page_down": "ctrl+d",
-    "messages_first": "home",
-    "messages_last": "end",
-    "messages_toggle_conceal": "none",
-    "tips_toggle": "<leader>h"
   }
 }
