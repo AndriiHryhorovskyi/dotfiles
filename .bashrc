@@ -150,11 +150,14 @@ export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   "
 eval "$(fzf --bash)"
-export GROQ_API_KEY=""
+
+export GOOGLE_CLOUD_PROJECT=""
+export OPENCODE_GEMINI_PROJECT_ID=""
 export GOOGLE_API_API_KEY=""
 export GEMINI_API_KEY=""
 export GEMINI_API_KEY_PAID=""
+export GROQ_API_KEY=""
 export SONAR_HOST_URL=""
 export SONAR_TOKEN=""
 export TAVILY_API_KEY=""
-
+export ZAI_API_KEY=""
