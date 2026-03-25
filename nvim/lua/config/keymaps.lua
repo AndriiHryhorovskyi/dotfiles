@@ -107,7 +107,7 @@ vim.keymap.set({ "n" }, "<leader>sb", function()
   Snacks.picker.buffers()
 end, { desc = "Buffers" })
 
-vim.keymap.set({ "n" }, "<leader>sn", LazyVim.pick.config_files(), { desc = "neovim config" })
+vim.keymap.set({ "n" }, "<leader>sN", LazyVim.pick.config_files(), { desc = "Neovim config" })
 
 vim.keymap.set({ "n" }, "<leader>sf", function()
   Snacks.picker.files({ hidden = true, show_empty = true })
@@ -120,6 +120,10 @@ end, { desc = "Git Files" })
 vim.keymap.set({ "n" }, "<leader>s.", function()
   Snacks.picker.recent({ filter = { cwd = true } })
 end, { desc = "Recent Files (cwd)" })
+
+vim.keymap.set({ "n" }, "<leader>sn", function()
+  Snacks.picker.files({ cwd = "~/notes", show_empty = true, title = "Notes" })
+end, { desc = "Files" })
 
 -- Treesitter navigation
 vim.keymap.set({ "x", "o" }, "a=", function()
