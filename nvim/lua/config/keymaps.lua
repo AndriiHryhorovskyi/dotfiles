@@ -94,7 +94,7 @@ vim.keymap.set({ "n", "x" }, "<leader>sR", function()
   })
 end, { desc = "Search and Replace" })
 
-vim.keymap.set({ "n" }, "<leader>co", "<cmd>Trouble symbols toggle<cr>", { desc = "Outline (Trouble symbols)" })
+vim.keymap.set({ "n" }, "<leader>co", "<cmd>Trouble symbols toggle win={size=40}<cr>", { desc = "Outline (Trouble symbols)" })
 
 vim.keymap.set(
   { "n" },

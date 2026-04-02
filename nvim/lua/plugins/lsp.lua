@@ -14,6 +14,7 @@ return {
           { "<leader>cR", false },
           { "<leader>cr", false },
           { "<leader>cl", false },
+          { "<leader>co", false },
           { "[[", false },
           { "]]", false },
           { "<a-n>", false },
