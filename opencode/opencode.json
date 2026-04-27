@@ -1,13 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "zai-coding-plan/glm-4.7",
+  "autoupdate": "notify",
+  "share": "manual",
+  "model": "zai-coding-plan/glm-5.1",
   "small_model": "opencode/big-pickle",
   "disabled_providers": ["google-vertex", "google-vertex-anthropic"],
   "plugin": [
-    "opencode-gemini-auth@latest"
+    "opencode-gemini-auth@latest",
+    "@mohak34/opencode-notifier@latest"
   ],
-  "autoupdate": "notify",
-  "share": "manual",
+  "compaction": {
+    "auto": false,
+    "prune": false,
+    "reserved": 10000
+  },
   "permission": {
     "read": {
       "*": "allow",
@@ -23,7 +29,9 @@
       "npm run test*": "allow",
       "npm run *?test*": "allow",
       "npm test": "allow",
-      "npm run format": "allow"
+      "npm run format": "allow",
+      "openspec *": "allow",
+      "mkdir *": "allow"
     },
     "webfetch": "ask"
   },
