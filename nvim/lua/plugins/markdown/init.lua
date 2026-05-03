@@ -8,7 +8,11 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
       enabled = true,
+      render_modes = true,
       quote = { repeat_linebreak = true },
+      heading = {
+        sign = false,
+      },
       win_options = {
         showbreak = { default = "", rendered = "  " },
         breakindent = { default = false, rendered = true },
@@ -23,6 +27,14 @@ return {
       latex = {
         enabled = true,
       },
+    },
+  },
+  {
+    "AckslD/nvim-FeMaco.lua",
+    ft = { "markdown" },
+    opts = {},
+    keys = {
+      { "<leader>ce", "<cmd>FeMaco<cr>", mode = "n", desc = "edit" },
     },
   },
 }
