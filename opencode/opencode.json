@@ -1,41 +1,84 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "google/gemini-2.5-pro",
-  "small_model": "google/gemini-2.5-flash",
-  "disabled_providers": ["google-vertex", "google-vertex-anthropic"],
-  "plugin": ["opencode-gemini-auth", "@tarquinen/opencode-dcp@latest"],
-  "tui": {
-    "scroll_speed": 2
-  },
-  "theme": "tokyonight",
   "autoupdate": "notify",
   "share": "manual",
+  "model": "zai-coding-plan/glm-5.1",
+  "small_model": "opencode/big-pickle",
+  "disabled_providers": ["google-vertex", "google-vertex-anthropic"],
+  "plugin": [
+    "opencode-gemini-auth@latest",
+    "@slkiser/opencode-quota",
+    "@mohak34/opencode-notifier@latest"
+  ],
+  "compaction": {
+    "auto": false,
+    "prune": false,
+    "reserved": 10000
+  },
   "permission": {
-    "edit": "ask",
-    "bash": "ask",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+      ".*rc": "deny"
+    },
+    "bash": {
+      "*": "ask",
+      "npm run lint*": "allow",
+      "npm run typecheck*": "allow",
+      "npm run test*": "allow",
+      "npm run *?test*": "allow",
+      "npm test": "allow",
+      "npm run format": "allow",
+      "openspec *": "allow",
+      "mkdir *": "allow"
+    },
     "webfetch": "ask"
   },
   "mcp": {
     "context7": {
+      "enabled": false,
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp@latest"],
-      "enabled": true
+      "command": ["npx", "-y", "@upstash/context7-mcp@latest"]
     },
     "gh_grep": {
       "type": "remote",
       "url": "https://mcp.grep.app",
       "enabled": false
+    },
+    "zai-web-search": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/web_search_prime/mcp",
+      "headers": {
+        "Authorization": "{env:ZAI_API_KEY}"
+      }
+    },
+    "zread": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/zread/mcp",
+      "headers": {
+        "Authorization": "{env:ZAI_API_KEY}"
+      }
+    },
+    "zai-web-reader": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://api.z.ai/api/mcp/web_reader/mcp",
+      "headers": {
+        "Authorization": "{env:ZAI_API_KEY}"
+      }
+    },
+    "zai-vision": {
+      "enabled": false,
+      "type": "local",
+      "command": ["npx", "-y", "@z_ai/mcp-server"],
+      "environment": {
+        "Z_AI_API_KEY": "{env:ZAI_API_KEY}",
+        "Z_AI_MODE": "ZAI"
+      }
     }
-  },
-  "keybinds": {
-    "leader": "ctrl+x",
-    "app_exit": "<leader>q",
-    "editor_open": "<leader>e",
-    "messages_copy": "<leader>y",
-    "messages_undo": "<leader>u",
-    "messages_redo": "<leader>r",
-    "agent_list": "<leader>a",
-    "input_clear": "ctrl+c",
-    "input_paste": "<leader>+p"
   }
 }
