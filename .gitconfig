@@ -12,3 +12,5 @@
 	ff = only
 [includeif "gitdir:~/Projects/Work/subcontract/**/*"]
 	path = ~/Projects/Work/subcontract/.gitconfig-subcontract
+[worktree]
+	useRelativePaths = true
