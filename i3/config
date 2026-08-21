@@ -83,16 +83,16 @@ bindsym XF86Display --release exec --no-startup-id "autorandr --cycle"
 
 # --- Dunst Management via dunstctl ---
 # win+n
-set $notification_control Notification: [𝐥]ast  [𝐡]istory  [𝐜]ontext  [𝐪]uit-all
-bindcode $win+57 mode "$notification_control"
-mode "$notification_control" {
-  # Redisplay last 5 notifications from history
+set $message_control Notification: [𝐥]ast  [𝐡]istory  [𝐜]ontext  [𝐪]uit-all
+bindcode $win+58 mode "$message_control"
+mode "$message_control" {
+  # Redisplay last 5 messages from history
   bindcode 43 exec --no-startup-id "dunstctl history-pop && dunstctl history-pop && dunstctl history-pop && dunstctl history-pop && dunstctl history-pop", mode "default"
-  # Redisplay the last notification from history
+  # Redisplay the last messages from history
   bindcode 46 exec --no-startup-id dunstctl history-pop, mode "default"
-  # Open the context menu for the notification
+  # Open the context menu for the message
   bindcode 54 exec --no-startup-id dunstctl context, mode "default"
-  # Close all visible notifications
+  # Close all visible messages
   bindcode 24 exec --no-startup-id dunstctl close-all, mode "default"
   # 9 == esc
   bindcode 9 mode "default"
@@ -100,6 +100,14 @@ mode "$notification_control" {
 
 # mod+control+x
 bindcode $mod+control+53 --release exec --no-startup-id xkill
+
+for_window [instance="floating_notes_search"] floating enable, resize set 1600 900, move position center,
+# Bind to Win+n (find notes)
+bindcode $win+57 exec --no-startup-id kitty --class floating_notes_search -e ~/.local/bin/find-notes.sh
+bindcode $win+shift+57 exec --no-startup-id kitty --class floating_notes_search -e ~/.local/bin/find-notes-content.sh
+
+# Bind to Win+Shift+n (Sync notes)
+bindcode $win+control+57 exec --no-startup-id echo "sync" > ~/.local/state/notes-sync.pipe
 
 focus_follows_mouse yes
 
@@ -383,8 +391,6 @@ bar {
 }
 
 # hide/unhide i3status bar
-# mod+m
-bindcode $mod+58 bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -470,7 +476,7 @@ exec_always --no-startup-id xkbset m
 # prevent auto turn off mouse keys
 exec_always --no-startup-id xkbset exp =m
 # xkbset ma [delay] [interval] [time_to_max] [max_speed] [curve]
-exec_always --no-startup-id xkbset ma 10 10 20 20 20
+exec_always --no-startup-id xkbset ma 10 10 30 20 20
 exec --no-startup-id clipit
 
 ###################################################################################
