@@ -99,7 +99,7 @@ mode "$message_control" {
 }
 
 # mod+m
-set $mouse_control mouse: [m]ove [c]lick [s]croll
+set $mouse_control mouse: [M]ove [C]lick [S]croll [L]ist
 bindcode $mod+58 mode "$mouse_control"
 mode "$mouse_control" {
   # m - move mouse pointer
