@@ -82,8 +82,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 10%- && no
 bindsym XF86Display --release exec --no-startup-id "autorandr --cycle"
 
 # --- Dunst Management via dunstctl ---
-# win+n
-set $message_control Notification: [𝐥]ast  [𝐡]istory  [𝐜]ontext  [𝐪]uit-all
+# win+m
+set $message_control message: [𝐥]ast  [𝐡]istory  [𝐜]ontext  [𝐪]uit-all
 bindcode $win+58 mode "$message_control"
 mode "$message_control" {
   # Redisplay last 5 messages from history
@@ -94,7 +94,23 @@ mode "$message_control" {
   bindcode 54 exec --no-startup-id dunstctl context, mode "default"
   # Close all visible messages
   bindcode 24 exec --no-startup-id dunstctl close-all, mode "default"
-  # 9 == esc
+  # esc
+  bindcode 9 mode "default"
+}
+
+# mod+m
+set $mouse_control mouse: [m]ove [c]lick [s]croll
+bindcode $mod+58 mode "$mouse_control"
+mode "$mouse_control" {
+  # m - move mouse pointer
+  bindcode 58 exec --no-startup-id warpd --hint --oneshot, mode "default"
+  # c - move mouse pointer and left click
+  bindcode 54 exec --no-startup-id warpd --hint --click 1 --oneshot, mode "default"
+  # s - mouse scroll
+  bindcode 39 exec --no-startup-id warpd --normal -c ~/.config/warpd/scroll_conf, mode "default"
+  # l - move cursor and scroll
+  bindcode 46 exec --no-startup-id "warpd --hint --oneshot && warpd --normal -c ~/.config/warpd/scroll_conf", mode "default"
+  # esc
   bindcode 9 mode "default"
 }
 
@@ -106,7 +122,7 @@ for_window [instance="floating_notes_search"] floating enable, resize set 1600 9
 bindcode $win+57 exec --no-startup-id kitty --class floating_notes_search -e ~/.local/bin/find-notes.sh
 bindcode $win+shift+57 exec --no-startup-id kitty --class floating_notes_search -e ~/.local/bin/find-notes-content.sh
 
-# Bind to Win+Shift+n (Sync notes)
+# Bind to Win+control+n (Sync notes)
 bindcode $win+control+57 exec --no-startup-id echo "sync" > ~/.local/state/notes-sync.pipe
 
 focus_follows_mouse yes
