@@ -24,6 +24,7 @@ require("lazy").setup({
     { "folke/persistence.nvim", enabled = false },
     { "nvim-mini/mini.pairs", enabled = false },
     { "folke/ts-comments.nvim", enabled = false },
+    { "iamcco/markdown-preview.nvim", enabled = false },
     -- import/override with your plugins
     { import = "plugins" },
   },
